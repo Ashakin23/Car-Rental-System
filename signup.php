@@ -1,43 +1,55 @@
-<!Doctype html>
-<html>
+<html lang="en">
 <head>
-	<title>Register</title>
-	<link rel="stylesheet" href="stsht.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css?v=0.0.2">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <title>Document</title>
 </head>
-	<body class="bg">
-		<div class="title">
-			<h3 >Sign Up</h3>
-			<form action="http://localhost/new/signupbg.php" method="POST">
-				<label for="Full Name" class="m1" ><b>Name:</b>
-				</label><br />
-				<input type="text" name="fullname" id="fullname" placeholder="Name" /><br />
-
-
-				<label for="username" class="m1"><b>Username:</b>
-				</label><br />
-				<input type="text" name="username" id="username" placeholder="Username"/><br />
-
-				<label for="email" class="m1"><b>Email:</b>
-				</label><br />
-				<input type="email" name="email" id="email" placeholder="Email"/><br />
-
-				<label for="password">
-					<b>Password:</b>
-				</label><br />
-				<input type="password" name="password"  />
-				<br />
-				<label for="password">
-					<b>Confirm Password:</b>
-				</label><br />
-				<input type="password" name="cpassword"  />
-				<br /><br />
-				<input type="submit" value="submit" />
-				<input type="reset">
-			</form>
-			<footer>
-			<a class="icn" href="https://fb.com/kazi.ashakin"><img src="fb_ic.png" class="icn"/>
-			</a></footer>
-
-			</div>
-		</body>
+<body>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" action="./partials/Signup.php" method="post">
+                    <h2>Sign Up</h2>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        
+                        <input type="text" class="login__input" placeholder="Full Name" name="fullname">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="text" class="login__input" placeholder="Username" name="username">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="email" class="login__input" placeholder="Email" name="email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" placeholder="Password" name="password">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" placeholder="Confirm password" name="cpassword">
+                    </div>
+                    <button type="submit" class="button login__submit">
+                        <span class="button__text">Sign Up</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>				
+                </form>
+                
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div>
+    </div>
+</body>
 </html>
