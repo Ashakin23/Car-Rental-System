@@ -1,3 +1,11 @@
+
+<?php
+if (isset($_POST['logout'])){
+    session_start();
+    session_unset();
+    session_destroy();
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +21,7 @@
     <div class="container">
         <div class="screen">
             <div class="screen__content">
-                <form class="login" action="http://localhost/new/dashboard.php" method="POST">
+                <form class="login" action="http://localhost/new/loginbg.php" method="POST">
                     <h2>Log in</h2>
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
@@ -21,7 +29,7 @@
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password">
+                        <input type="password" class="login__input" name="password" id="password" placeholder="Password">
                     </div>
                     <button class="button login__submit" type="submit" value="submit">
                         <span class="button__text">Log In Now</span>
