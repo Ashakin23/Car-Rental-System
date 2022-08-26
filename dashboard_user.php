@@ -114,8 +114,6 @@ session_start();
 				echo "here3";		
 			};
 			if ($restf === true){
-				//echo '<input type="radio" id="" name="fav_language" value="HTML">';
-  				//<label for="html">HTML</label><br>
 				echo "here1";
 			}
 
