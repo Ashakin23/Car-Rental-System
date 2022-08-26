@@ -126,7 +126,7 @@ session_start();
                             $end = date('Y/m/d', strtotime('+1 days'));
                             $sql = "INSERT INTO booked VALUES ('$cid','$cnum','$username','$strd','$end',5000);";
                             mysqli_query($conn,$sql);
-                            $sql = "ALTER TABLE car SET booked = '1' WHERE id = '$cid';";
+                            $sql = "UPDATE car SET booked = '1' WHERE id = '$cid';";
                             mysqli_query($conn,$sql);
                             echo "Your car have been booked";
 
