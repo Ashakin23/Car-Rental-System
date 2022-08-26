@@ -72,9 +72,9 @@ session_start();
                                     </div>
                                 </div>
                                 <hr>
-                                <form method="post" action="http://localhost://new/dashboard_user.php">
-                                <button type="submit" name = 'chk_car' class="btn btn-dark">Check Cars </button>
-								<button type="button" class="btn btn-secondary">Check Booking History</button>    
+                                <form method="post" action="http://localhost://new/dashboard_user.php" style="display:flex; justify-content: center;">
+                                <button type="submit" name = 'chk_car' class="btn btn-dark" style="margin:0px 20px;">Check Cars </button>
+								<button type="submit" name = 'book_car' class="btn btn-secondary" style="margin:0px 20px;">Check Booking History</button>    
 								</form>
                                 
                             </div>
@@ -87,59 +87,38 @@ session_start();
             </div>
         </div>
   		<?php 
-  			// if (isset($_GET['chk_car'])){
-			//   	$restf = false;
-			// 	if(mysqli_num_rows(mysqli_query($conn, "SELECT type,model,quality FROM car WHERE booked = '0';"))){
-			// 	$restf = true;
-				
-			// 	}
-			// 	else{
-			// 		$restf = false;		
-			// 	}
-			// 	if ($restf === true){
-			// 		$sql = "SELECT type,model,quality FROM car WHERE booked='0';";
-			// 	    $res = mysqli_query($conn,$sql);
-			// 	    while ($row=mysqli_fetch_assoc($res)){
-			// 	    	echo $row['type']," ",$row['model']," ",$row['quality'];
-			// 	    }
-			// 	}
-  				
-  			// }
-
-			  if 	(isset($_GET['book_car'])){
+			if 	(isset($_POST['book_car'])){
 				$restf;
 				if(mysqli_num_rows(mysqli_query($conn, "SELECT type,model,quality FROM car WHERE booked = '0';"))){
-				  $restf = true;
-				  
-			  }
-			  else{
-				  $restf = false;		
-			  };
-			  if ($restf === true){
-				  $sql = "SELECT id,type,model,quality FROM car WHERE booked='0';";
-				  $res = mysqli_query($conn,$sql);
-				  echo'
-				  <form method="get" action='. $_SERVER["PHP_SELF"].'>';
-				  while ($row=mysqli_fetch_assoc($res)){
-						echo '
-						
-						<input type="radio" id='.$row["id"].' name="fav_car" value="fav_car">
-							  <label for='.$row["id"].'>'.$row["type"].'-->'.$row["model"].'-->'.$row["quality"].'</label><br>';
-				  }
-				  echo '
-				  <button type="submit" name = "booked_car" class="btn btn-secondary">Book Car</button></form>';
-  
-				  if (isset($_GET['booked_car'])){
-					  if (isset($_GET['fav_car'])){
-						  echo "You have selected Car ", $_GET['fav_car'];
-					  }
-				  }
-  
-  
+				$restf = true;	
+				}
+				else{
+					$restf = false;		
+				};
+				if ($restf === true){
+					$sql = "SELECT id,type,model,quality FROM car WHERE booked='0';";
+					$res = mysqli_query($conn,$sql);
+					echo'
+					<form method="post" action="http://localhost://new/dashboard_user.php">';
+					while ($row=mysqli_fetch_assoc($res)){
+							echo '
+							<input type="radio" id='.$row["id"].' name="fav_car" value='.$row["id"].'>
+								<label for='.$row["id"].'>'.$row["type"].'-->'.$row["model"].'-->'.$row["quality"].'</label><br>';
+					}
+					echo '
+					<button type="submit" name = "booked_btn" class="btn btn-secondary" method="post">Book Car</button></form>';
 				}
 			}
-  
-  		?>
+			if (isset($_POST['booked_btn'])){
+				// if (isset($_POST['fav_car'])){
+					echo "You have selected Car ", $_POST['fav_car'];
+				// }
+			}
+
+		?>
+
+
+
 		<div class="container" style="padding:20px;">
 			<?php 
 				if (isset($_POST['chk_car'])){
