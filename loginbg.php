@@ -28,9 +28,13 @@ $pwd = $_POST['password'];
 		}
 		else{
 			$restf = false;
+			header("location: login_owner.php?error='UsernameNotFound'");
 		
 		}
 	}
+	if ($restf==false){
+		header("location: login_owner.php?error='UsernameNotFound'");
+	};
 	if (isset($_POST['owner_submit'])){
 		if(mysqli_num_rows(mysqli_query($conn, "SELECT username FROM owner_cred WHERE username = '$usOrem';"))){
 		$restf = true;
