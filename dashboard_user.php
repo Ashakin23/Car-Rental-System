@@ -74,7 +74,7 @@ session_start();
                                 <hr>
                                 <form method="post" action="http://localhost://new/dashboard_user.php" style="display:flex; justify-content: center;">
                                 <button type="submit" name = 'chk_car' class="btn btn-dark" style="margin:0px 20px;">Check Cars </button>
-								<button type="submit" name = 'book_car' class="btn btn-secondary" style="margin:0px 20px;">Check Booking History</button>    
+								<button type="submit" name = 'book_car' class="btn btn-secondary" style="margin:0px 20px;">Book Car</button>    
 								</form>
                                 
                             </div>
@@ -86,6 +86,7 @@ session_start();
 
             </div>
         </div>
+		<div class="container" style="display:flex; justify-content:center;">
   		<?php 
 			if 	(isset($_POST['book_car'])){
 				$restf;
@@ -116,7 +117,7 @@ session_start();
 			}
 
 		?>
-
+		</div>
 
 
 		<div class="container" style="padding:20px;">
