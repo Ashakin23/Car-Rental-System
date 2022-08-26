@@ -14,11 +14,12 @@ session_start();
 			
 		    include_once 'loregdb.php';
 		    $username = $_SESSION['username'];
+		    $fullname = $_SESSION['fullname'];
 		    $sql = "SELECT username,email FROM owner_cred WHERE username='$username';";
 		    $res = mysqli_query($conn,$sql);
 		    $row = mysqli_fetch_assoc($res);
 
-			echo "Hello Car Owner ",$username,".Your email address is: ",$row['email'];
+			echo "Hello Car Owner ",$fullname,".Your email address is: ",$row['email'];
 
 		?>
 

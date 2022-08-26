@@ -56,23 +56,23 @@
 	// }	
 echo "here1";
 	if (isset($_POST['user_signup'])){
-		echo "here4";
+		
 		if ($usex !== false){
 			header("location: signup_user.php?error=Usernamealreadyexists");
 			
 		}
 	}
 	if (isset($_POST['owner_signup'])){
-		echo "here5";
+		
 		if ($usexOwner !== false){
 			header("location: signup_owner.php?error=Usernamealreadyexists");
 			
 		}
 	}
-echo "here2";if ($usexOwner===false){echo "usexOwner: false";}
+
 	
 	if ($emt === false && $invem === false && $psm === false && ($usex === false || $usexOwner === false)){
-		echo "here6";
+		
 
 			#$hsdpswd = password_hash($password, PASSWORD_DEFAULT);
 		if (isset($_POST['user_signup'])){
