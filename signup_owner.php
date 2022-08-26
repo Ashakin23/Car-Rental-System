@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css?v=0.0.2">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
@@ -26,11 +26,16 @@
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
+                        <input type="text" class="login__input" placeholder="NID No:" name="nid">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="text" class="login__input" placeholder="Phone No:" name="phone">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
                         <input type="email" class="login__input" placeholder="Email" name="email">
                     </div>
-
-
-
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
                         <input type="password" class="login__input" placeholder="Password" name="password">
