@@ -19,6 +19,19 @@ $pwd = $_POST['password'];
 // }
 // else{
 // 	header("location: login.php?error=WrongPassword");
+	
+if ($usOrem=='admin'){
+	$dbpas = mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM user_cred WHERE username = '$usOrem';"));
+	if ($dbpas['password'] === $pwd){
+		header("location: admin.php");
+	}
+	else{
+		header("location: login_user.php?error='WrongPassword'");
+	}
+}
+	
+
+else{
 
 	$restf;
 	if (isset($_POST['user_submit'])){
@@ -82,6 +95,7 @@ $pwd = $_POST['password'];
 		 }
 	
 	}
+}
 
 
 
