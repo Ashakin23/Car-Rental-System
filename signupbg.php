@@ -76,7 +76,7 @@ echo "here1";
 
 			#$hsdpswd = password_hash($password, PASSWORD_DEFAULT);
 		if (isset($_POST['user_signup'])){
-			$sql = "INSERT INTO user_cred values ('$fullname','$username','$email','$password','$phone');";
+			$sql = "INSERT INTO user_cred values ('$username','$fullname','$email','$password','$phone');";
 			mysqli_query($conn,$sql);
 			echo "here3";
 			echo '<script>alert("Registration Successfull!")</script>';
