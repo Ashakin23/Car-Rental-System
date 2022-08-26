@@ -86,20 +86,17 @@ session_start();
 		</div>
   		<?php 
   			if (isset($_GET['chk_car'])){
-			  	$restf;
-				if (isset($_POST['user_submit'])){
-					if(mysqli_num_rows(mysqli_query($conn, "SELECT type,model,quality FROM car WHERE booked = '0';"))){
-					$restf = true;
-					
-					}
-					else{
-						$restf = false;		
-					}
+			  	$restf = false;
+				if(mysqli_num_rows(mysqli_query($conn, "SELECT type,model,quality FROM car WHERE booked = '0';"))){
+				$restf = true;
+				
+				}
+				else{
+					$restf = false;		
 				}
 				if ($restf === true){
 					$sql = "SELECT type,model,quality FROM car WHERE booked='0';";
 				    $res = mysqli_query($conn,$sql);
-				    //$row = mysqli_fetch_assoc($res);
 				    while ($row=mysqli_fetch_assoc($res)){
 				    	echo $row['type']," ",$row['model']," ",$row['quality'];
 				    }

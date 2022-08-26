@@ -114,14 +114,14 @@ session_start();
 					</div>
 					<label for="cartype" style="padding:8px">Car Type</label>
 					<select class="form-select" aria-label="Default select example" id="cartype" name="cartype" style="padding:8px">
-						<option value="1" selected>4 sitter</option>
-						<option value="2">7 sitter</option>
-						<option value="3">9 sitter</option>
+						<option value="4-sitter" selected>4 sitter</option>
+						<option value="7-sitter">7 sitter</option>
+						<option value="9-sitter">9 sitter</option>
 					</select>
 					<label for="carquality" style="padding:8px">Car Condition</label>
 					<select class="form-select" aria-label="Default select example" name="carquality" id="cartype" style="padding:8px">
-						<option value="1" selected>Regular</option>
-						<option value="2">Premium</option>
+						<option value="Regular" selected>Regular</option>
+						<option value="Premium">Premium</option>
 					</select>
 					<button type="submit" class="btn btn-dark" name = "addcarsubmit" value="addcarsubmit" style="margin: 20px 20px 20px 200px;display:flex;justify-content: center;">Adding Car<strong>+</strong></button>
 				</form>
