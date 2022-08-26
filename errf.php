@@ -49,14 +49,15 @@ function unameexists($conn,$username){
 	// }
 	// return $restf;
 	$restf;
-	if(mysqli_num_rows(mysqli_query($conn, "SELECT username FROM user_cred WHERE username = '$username'"))){
+	if(mysqli_num_rows(mysqli_query($conn, "SELECT username FROM user_cred WHERE username = '$username';"))){
 		$restf = true;
-		return $restf;
+		//return $restf;
 	}
 	else{
 		$restf = false;
-		return $restf;
+		//return $restf;
 	}
+	return $restf;
 
 }
 
@@ -89,3 +90,29 @@ function emailexistslogin($conn,$usOrem){
 }
 
 
+function unameexistsOwner($conn,$username){
+	// $restf;
+	// $sql = "SELECT username FROM user_cred;";
+	// $res = mysqli_query($conn,$sql);
+
+	// while ($row = mysqli_fetch_assoc($res)){
+	// 	if ($row['username']=== $username){
+	// 		$restf = true;
+	// 	}
+	// 	else{
+	// 		$restf = false;
+	// 	}
+		
+	// }
+	// return $restf;
+	$restf = false;
+	if(mysqli_num_rows(mysqli_query($conn, "SELECT username FROM owner_cred WHERE username = '$username';"))){
+		$restf = true;
+		return $restf;
+	}
+	else{
+		$restf = false;
+		return $restf;
+	}
+
+}
