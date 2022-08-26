@@ -18,14 +18,9 @@ session_start();
 		    $sql = "SELECT username,fullname,email,phone FROM user_cred WHERE username='$username';";
 		    $res = mysqli_query($conn,$sql);
 		    $row = mysqli_fetch_assoc($res);
-
-			// echo "Hello User ",$username,".Your email address is: ",$row['email'];
-
 		?>
 		<div class="container" style="padding:30px;">
-			<div class="main-body">
-
-			
+			<div class="main-body">			
 				<div class="row gutters-sm" style="padding-top:50px;">
 					<div class="col-md-4 mb-3">
 						<div class="card">
@@ -75,23 +70,10 @@ session_start();
 						</div>
 					</div>
 				</div>
-
-
-
 			</div>
 		</div>
-  
-
 		<form action="http://localhost/new/login_user.php" method="post" style="display:flex;justify-content: center;">
 		<button class="button login__submit btn btn-primary" type="submit" name = 'logout 'value="logout" style="padding:10px 20px;"><span class="button__text">Logout</span>
-		</form>
-
-        
-        
-        
-	
-
-
-
+		</form>    
 	</body>
 </html>
