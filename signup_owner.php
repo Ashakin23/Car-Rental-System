@@ -18,31 +18,31 @@
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
                         
-                        <input type="text" class="login__input" placeholder="Full Name" name="fullname">
+                        <input type="text" class="login__input" placeholder="Full Name" name="fullname" required>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="text" class="login__input" placeholder="Username" name="username">
+                        <input type="text" class="login__input" placeholder="Username" name="username" required>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="text" class="login__input" placeholder="NID No:" name="nid">
+                        <input type="text" class="login__input" placeholder="NID No:" name="nid" required>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="text" class="login__input" placeholder="Phone No:" name="phone">
+                        <input type="text" class="login__input" placeholder="Phone No:" name="phone" required>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="email" class="login__input" placeholder="Email" name="email">
+                        <input type="email" class="login__input" placeholder="Email" name="email" require>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password" name="password">
+                        <input type="password" class="login__input" placeholder="Password" name="password" required>
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Confirm password" name="cpassword">
+                        <input type="password" class="login__input" placeholder="Confirm password" name="cpassword" required>
                     </div>
                     <button type="submit" class="button login__submit" name = 'owner_signup' value = 'owner_signup'>
                         <span class="button__text">Sign Up</span>
