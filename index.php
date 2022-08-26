@@ -59,7 +59,7 @@
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li><a href="index.html" class="nav-link">Home</a></li>
+              
                   
                   <a href="http://localhost/new/login_user.php" class="ml-auto btn btn-light"><strong>Admin</strong></a>
                 </ul>

@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_user.css">
+    <link rel="stylesheet" href="style_user.css?v=0.0.1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
@@ -44,7 +44,12 @@
                     <button type="submit" class="button login__submit" name = 'user_signup' value = 'user_signup'>
                         <span class="button__text">Sign Up</span>
                         <i class="button__icon fas fa-chevron-right"></i>
-                    </button>				
+                    </button>
+                    <button type="submit" class="button login__submit" name = 'user_signup' value = 'user_signup'>
+                        <span class="button__text"><a href="http://localhost/new/">Home</a></span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+
                 </form>
                 
             </div>

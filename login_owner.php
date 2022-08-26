@@ -34,6 +34,10 @@ if (isset($_POST['logout'])){
                     <button class="button login__submit" type="submit" name = 'owner_submit' value="owner_submit">
                         <span class="button__text">Log In Now</span>
                         <i class="button__icon fas fa-chevron-right"></i>
+                    </button>	
+                    <button class="button login__submit" type="submit" name ='user_submit' value="user_submit">
+                        <span class="button__text" ><a  href="http://localhost/new/">Home</a></span>
+                        <i class="button__icon fas fa-chevron-right"></i>
                     </button>				
                 </form>
                 
