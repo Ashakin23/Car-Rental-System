@@ -21,16 +21,36 @@ $pwd = $_POST['password'];
 // 	header("location: login.php?error=WrongPassword");
 
 	$restf;
-	if(mysqli_num_rows(mysqli_query($conn, "SELECT username FROM user_cred WHERE username = '$usOrem';"))){
+	if (isset($_POST['user_submit'])){
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT username FROM user_cred WHERE username = '$usOrem';"))){
 		$restf = true;
 		
-	}
-	else{
-		$restf = false;
+		}
+		else{
+			$restf = false;
 		
+		}
 	}
+	if (isset($_POST['owner_submit'])){
+		if(mysqli_num_rows(mysqli_query($conn, "SELECT username FROM owner_cred WHERE username = '$usOrem';"))){
+		$restf = true;
+		
+		}
+		else{
+			$restf = false;
+		
+		}
+	}
+	
+	
 	if ($restf === true){
-		$dbpas = mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM user_cred WHERE username = '$usOrem';"));
+		if (isset($_POST['user_submit'])){
+			$dbpas = mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM user_cred WHERE username = '$usOrem';"));
+		}
+		if (isset($_POST['owner_submit'])){
+			$dbpas = mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM owner_cred WHERE username = '$usOrem';"));
+		}
+		
 		if ($dbpas['password'] === $pwd){
 			$_SESSION['username'] = $usOrem;
 			$_SESSION['password'] = $pwd;
