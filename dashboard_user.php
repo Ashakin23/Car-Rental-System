@@ -112,7 +112,28 @@ session_start();
 			}
 			if (isset($_POST['booked_btn'])){
 				// if (isset($_POST['fav_car'])){
-					echo "You have selected Car ", $_POST['fav_car'];
+					$sql = "SELECT c_number,id FROM car WHERE booked='0';";
+                    $res = mysqli_query($conn,$sql);
+                    while ($row=mysqli_fetch_assoc($res)){
+                        if ($row['id']==$_POST['fav_car']){
+                            $cid = $row['id'];
+                            $sql = "SELECT c_number,id FROM car WHERE id= '$cid';";
+                            $res = mysqli_query($conn,$sql);
+                            $row=mysqli_fetch_assoc($res);
+                            
+                            $cnum = $row['c_number'];
+                            $strd = date("Y/m/d");
+                            $end = date('Y/m/d', strtotime('+1 days'));
+                            $sql = "INSERT INTO booked VALUES ('$cid','$cnum','$username','$strd','$end',5000);";
+                            mysqli_query($conn,$sql);
+                            $sql = "ALTER TABLE car SET booked = '1' WHERE id = '$cid';";
+                            mysqli_query($conn,$sql);
+                            echo "Your car have been booked";
+
+
+
+                        }
+                    }
 				// }
 			}
 
