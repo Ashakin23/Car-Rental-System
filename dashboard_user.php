@@ -71,6 +71,10 @@ session_start();
 									</div>
 								</div>
 								<hr>
+								<form method="get" action="<?php echo $_SERVER['PHP_SELF']?>">
+								<button type="submit" name = 'chk_car' class="btn btn-dark">Check Cars </button>
+								</form>
+                        		<button type="button" class="btn btn-secondary">Check Booking History</button>
 							</div>
 						</div>
 					</div>
@@ -80,7 +84,29 @@ session_start();
 
 			</div>
 		</div>
-  
+  		<?php 
+  			if (isset($_GET['chk_car'])){
+			  	$restf;
+				if (isset($_POST['user_submit'])){
+					if(mysqli_num_rows(mysqli_query($conn, "SELECT type,model,quality FROM car WHERE booked = '0';"))){
+					$restf = true;
+					
+					}
+					else{
+						$restf = false;		
+					}
+				}
+				if ($restf === true){
+					$sql = "SELECT type,model,quality FROM car WHERE booked='0';";
+				    $res = mysqli_query($conn,$sql);
+				    //$row = mysqli_fetch_assoc($res);
+				    while ($row=mysqli_fetch_assoc($res)){
+				    	echo $row['type']," ",$row['model']," ",$row['quality'];
+				    }
+				}
+  				
+  			}
+  		?>
 
 		<form action="http://localhost/new/login_user.php" method="post" style="display:flex;justify-content: center;">
 		<button class="button login__submit btn btn-primary" type="submit" name = 'logout 'value="logout" style="padding:10px 20px;"><span class="button__text">Logout</span>
