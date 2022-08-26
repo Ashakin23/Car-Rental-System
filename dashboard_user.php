@@ -72,9 +72,9 @@ session_start();
 								</div>
 								<hr>
 								<form method="get" action="<?php echo $_SERVER['PHP_SELF']?>">
-								<button type="submit" name = 'chk_car' class="btn btn-dark">Check Cars </button>
-								</form>
-                        		<button type="button" class="btn btn-secondary">Check Booking History</button>
+								<button type="submit" name = 'chk_car' class="btn btn-dark">Check Available Cars </button>
+								
+                        		<button type="submit" name = 'book_car' class="btn btn-secondary">Book Car</button></form>
 							</div>
 						</div>
 					</div>
@@ -103,6 +103,24 @@ session_start();
 				}
   				
   			}
+
+  		if 	(isset($_GET['book_car'])){
+  			if(mysqli_num_rows(mysqli_query($conn, "SELECT type,model,quality FROM car WHERE booked = '0';"))){
+				$restf = true;
+				echo "here2";
+			}
+			else{
+				$restf = false;
+				echo "here3";		
+			};
+			if ($restf === true){
+				//echo '<input type="radio" id="" name="fav_language" value="HTML">';
+  				//<label for="html">HTML</label><br>
+				echo "here1";
+			}
+
+
+  		}
   		?>
 
 		<form action="http://localhost/new/login_user.php" method="post" style="display:flex;justify-content: center;">
