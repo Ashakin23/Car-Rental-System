@@ -15,9 +15,7 @@ session_start();
 			
 		    include_once 'loregdb.php';
 		    $username = $_SESSION['username'];
-		    $sql = "SELECT username,fullname,email,phone,NID FROM owner_cred WHERE username='$username';";
-		    $res = mysqli_query($conn,$sql);
-		    $row = mysqli_fetch_assoc($res);
+		    
 		?>
 		<div class="container">
 			<div class="main-body">
@@ -49,7 +47,7 @@ session_start();
 										<h6 class="mb-0">Admin ID :</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<?php echo $row['NID'] ?>
+										<?php echo $username; ?>
 									</div>
 								</div>
 								<hr>
@@ -57,8 +55,60 @@ session_start();
 								
 								<div style="display:flex;justify-content: center;">
 								</form>
-                                    <button type="submit" name = 'chk_car' class="btn btn-dark">Ban a user</button>
-									<button type="button" class="btn btn-secondary" style="margin: 0px 20px;">Check Booking History</button>
+								<form method="post" action="http://localhost://new/admin.php">
+                                    <button type="submit" name = 'ban_usr' class="btn btn-dark">Ban a user</button>
+									<button type="button" name = 'cncl' class="btn btn-secondary" style="margin: 0px 20px;">Cancel Car Contract</button>
+									<button type="submit" name = 'chk_usr' class="btn btn-dark">Check users</button>
+									<button type="submit" name = 'chk_own' class="btn btn-dark">Check Owner</button>
+								</form>
+									<?php 
+										if 	(isset($_POST['ban_usr'])){
+											
+												echo '
+												<form action = "http://localhost/new/admin.php" method = "post">
+												<input type="text" name = "ban_usnm" placeholder = "username"> 
+												<button type="submit" name = "ban_btn" class="btn btn-secondary" method="post">Ban User</button></form>';
+											}
+
+										if (isset($_POST['ban_btn'])){
+											$usnm = $_POST['ban_usnm'];
+											$sql = "DELETE FROM user_cred WHERE username = '$usnm';";
+											mysqli_query($conn,$sql);
+											echo "User Banned";
+										}
+
+										if (isset($_POST['chk_usr'])){
+											$sql = "SELECT fullname,username,email,phone FROM user_cred;";
+											$res = mysqli_query($conn,$sql);
+
+											while ($row = mysqli_fetch_assoc($res)){
+												echo $row['fullname']."  ".$row['username']." ".$row['email']." ".$row['phone']."<br>";
+											}
+										}
+										if (isset($_POST['chk_own'])){
+											$sql = "SELECT fullname,username,email,phone FROM owner_cred;";
+											$res = mysqli_query($conn,$sql);
+
+											while ($row = mysqli_fetch_assoc($res)){
+												echo $row['fullname']."  ".$row['username']." ".$row['email']." ".$row['phone']."<br>";
+											}
+										}
+										if 	(isset($_POST['cncl'])){
+											
+												echo '
+												<form action = "http://localhost/new/admin.php" method = "post">
+												<input type="text" name = "ban_car" placeholder = "Car Number"> 
+												<button type="submit" name = "cncl_car" class="btn btn-secondary" method="post">Ban User</button></form>';
+											}
+
+										if (isset($_POST['cncl_car'])){
+											$usnm = $_POST['ban_car'];
+											$sql = "DELETE FROM car WHERE c_number = '$usnm';";
+											mysqli_query($conn,$sql);
+											echo "Car Contract Cancelled!";
+										}
+										
+									?>
 								</div>
 							</div>
 						</div>
