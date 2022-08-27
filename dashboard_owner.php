@@ -83,7 +83,16 @@ session_start();
 										<h6 class="mb-0">Net Profit</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<?php echo $row['phone'] ?>
+										<?php
+										$count=0;
+										$sql = "select id from booked where client_username='$username';";
+										$res = mysqli_query($conn,$sql);
+										while ($row=mysqli_fetch_assoc($res)){
+											$count=$count+1;
+										}
+										$pay=$count*5000;
+										echo $pay.' BDT';
+										?>
 									</div>
 								</div>
                                 <hr>
