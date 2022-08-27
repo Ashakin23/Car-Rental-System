@@ -74,7 +74,8 @@ session_start();
                                 <hr>
                                 <form method="post" action="http://localhost://new/dashboard_user.php" style="display:flex; justify-content: center;">
                                 <button type="submit" name = 'chk_car' class="btn btn-dark" style="margin:0px 20px;">Check Cars </button>
-								<button type="submit" name = 'book_car' class="btn btn-secondary" style="margin:0px 20px;">Book Car</button>    
+								<button type="submit" name = 'book_car' class="btn btn-secondary" style="margin:0px 20px;">Book Car</button>
+                                <button type="submit" name = 'leave_car' class="btn btn-secondary" style="margin:0px 20px;">Leave Car</button>    
 								</form>
                                 
                             </div>
@@ -136,6 +137,19 @@ session_start();
                     }
 				// }
 			}
+            if (isset($_POST['leave_car'])){
+                
+                $row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT id FROM booked WHERE client_username = '$username';"));
+                $cid = $row['id'];
+                if (mysqli_num_rows(mysqli_query($conn,"SELECT client_username FROM booked WHERE id = '$cid';"))){
+                    $sql = "UPDATE car SET booked = '0' WHERE id = '$cid';";
+                    mysqli_query($conn,$sql);
+                    $sql = "DELETE FROM booked WHERE id = '$cid';";
+                    mysqli_query($conn,$sql);
+                }
+                
+
+            }
 
 		?>
 		</div>
