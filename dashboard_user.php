@@ -8,7 +8,7 @@ session_start();
         <meta name = "viewport" content= "width= device-width" initial-scale="1.0">
 		<link rel="stylesheet" href="style3.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <title>Welcome!</title>
+        <title>Client Dashboard</title>
         
     </head>
     <body style="background:#E9E9E9;">

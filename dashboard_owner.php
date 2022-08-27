@@ -7,7 +7,7 @@ session_start();
 		<meta charset="utf-8">
 		<meta name = "viewport" content= "width= device-width" initial-scale="1.0">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-		<title>Welcome!</title>
+		<title>Owner Dashboard</title>
 		
 	</head>
 	<body style="background:#E9E9E9;">
@@ -91,7 +91,9 @@ session_start();
 								<form action="http://localhost://new/dashboard_owner.php" method = "post">
 									<button type="submit" class="btn btn-dark" name = 'addcars 'value="addcars" style="margin: 0px 20px;">Add Cars<strong>+</strong></button>
 								</form>
-									<button type="button" class="btn btn-secondary" style="margin: 0px 20px;">Check Booking History</button>
+								<form action="http://localhost://new/dashboard_owner.php" method = "post">
+									<button type="submit" class="btn btn-secondary" name='carstatus' value='carstatus' style="margin: 0px 20px;">Check Car Status</button>
+								</form>
 								</div>
 							</div>
 						</div>
@@ -127,6 +129,44 @@ session_start();
 				</form>
 			</div>';
 			};
+			if (isset($_POST['carstatus'])) {
+				$sql = "select c_number,type,model,quality,booked from car where username='$username';";
+				$res = mysqli_query($conn,$sql);
+				echo '
+				<div class="container">
+				<table class="table">
+					<thead style="background:#BCBCBE">
+						<tr>
+						<th scope="col">Car Number</th>
+						<th scope="col">Car Model</th>
+						<th scope="col">Car Type</th>
+						<th scope="col">Car Condition</th>
+						<th scope="col">Available Status</th>
+						</tr>
+					</thead>
+					<tbody>
+				';
+				while ($row=mysqli_fetch_assoc($res)){
+					echo '
+					<tr>
+						<td>'.$row["c_number"].'</td>
+						<td>'.$row["model"].'</td>
+						<td>'.$row["type"].'</td>
+						<td>'.$row["quality"].'</td>
+						<td>'; 
+					if ($row["booked"]==0){
+						echo 'Available';
+					} else{ 
+						echo 'Unavailable';
+					}; 
+					echo '</td>
+				  	</tr>
+					';
+				}
+				echo '</tbody>
+					</table>
+					</div>';
+			}
 		?>
 		<form action="http://localhost/new/login_owner.php" method="post" style="display:flex;justify-content: center;">
 

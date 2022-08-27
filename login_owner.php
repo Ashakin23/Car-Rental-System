@@ -15,7 +15,7 @@ if (isset($_POST['logout'])){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <title>Log in</title>
+    <title>Log in Owner</title>
 </head>
 <body>
     <div class="container">
@@ -25,7 +25,7 @@ if (isset($_POST['logout'])){
                     <h2>Log in</h2>
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" name="username" id="username" placeholder="User name / Email">
+                        <input type="text" class="login__input" name="username" id="username" placeholder="User name">
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>

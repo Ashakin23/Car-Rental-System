@@ -88,27 +88,5 @@ echo "here1";
 			echo '<script>alert("Registration Successfull!")</script>';
 			header("location: login_owner.php");
 		}
-			
-			
-
-			
-
-			// if (isset($_POST['user_signup'])){
-			// header("location: login_user.php");
-			// }
-			// else{
-			// 	header("location: login_owner.php");
-			// }
 	}
-	
-	
-
-
-
-
-	
-
-	
-
-
-
+?>

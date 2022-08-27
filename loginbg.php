@@ -23,7 +23,7 @@ $pwd = $_POST['password'];
 if ($usOrem=='admin'){
 	$dbpas = mysqli_fetch_assoc(mysqli_query($conn, "SELECT password FROM user_cred WHERE username = '$usOrem';"));
 	if ($dbpas['password'] === $pwd){
-		header("location: admin.php");
+		header("location: admin.php?usOrem=".$usOrem);
 	}
 	else{
 		header("location: login_user.php?error='WrongPassword'");
