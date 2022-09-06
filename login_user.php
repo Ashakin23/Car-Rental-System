@@ -35,8 +35,8 @@ if (isset($_POST['logout'])){
                         <span class="button__text">Log In Now</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>	
-                    <button class="button login__submit" type="submit" name ='user_submit' value="user_submit">
-                        <span class="button__text" ><a  href="http://localhost/new/">Home</a></span>
+                    <button class='button login__submit' onclick="location.href='http://localhost/new'" type="button" >
+                        <span class="button__text" >Home</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>			
                 </form>

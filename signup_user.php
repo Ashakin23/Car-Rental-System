@@ -45,8 +45,8 @@
                         <span class="button__text">Sign Up</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>
-                    <button type="submit" class="button login__submit" name = 'user_signup' value = 'user_signup'>
-                        <span class="button__text"><a href="http://localhost/new/">Home</a></span>
+                    <button  class="button login__submit" onclick="location.href='http://localhost/new'" type="button">
+                        <span class="button__text">Home</span>
                         <i class="button__icon fas fa-chevron-right"></i>
                     </button>
 
